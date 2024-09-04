@@ -47,7 +47,9 @@ then
 fi
 
 #set build version, android home temp variable and build
-export ANDROID_SDK_ROOT=~/.android
+
+export ANDROID_HOME=~/.android
+export ANDROID_NDK_HOME=$ANDROID_HOME/ndk-bundle
 cd $(dirname $(readlink -f $0))
 cd ../
 ./version.sh

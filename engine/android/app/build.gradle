@@ -7,6 +7,7 @@ android {
         targetSdkVersion 31
 
         //////////// MODFY FOR CUSTOM APK /////////////////
+        namespace "org.openbor.engine"
         applicationId "org.openbor.engine"
         versionCode 1
         versionName "1.0.0"
