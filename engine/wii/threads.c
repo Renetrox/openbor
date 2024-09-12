@@ -41,25 +41,25 @@ void thread_join(bor_thread *thread)
 	free(thread);
 }
 
-bor_mutex *mutex_create(void)
+SDL_mutex *mutex_create(void)
 {
 	mutex_t *mutex = malloc(sizeof(mutex_t));
 	if (LWP_MutexInit(mutex, 0) != 0) return NULL;
 	return mutex;
 }
 
-void mutex_destroy(bor_mutex *mutex)
+void mutex_destroy(SDL_mutex *mutex)
 {
 	LWP_MutexDestroy(*mutex);
 	free(mutex);
 }
 
-int mutex_lock(bor_mutex *mutex)
+int mutex_lock(SDL_mutex *mutex)
 {
 	return LWP_RETCODE(LWP_MutexLock(*mutex));
 }
 
-int mutex_unlock(bor_mutex *mutex)
+int mutex_unlock(SDL_mutex *mutex)
 {
 	return LWP_RETCODE(LWP_MutexUnlock(*mutex));
 }
@@ -87,12 +87,12 @@ int cond_broadcast(bor_cond *cond)
 	return LWP_RETCODE(LWP_CondBroadcast(*cond));
 }
 
-int cond_wait(bor_cond *cond, bor_mutex *mutex)
+int cond_wait(bor_cond *cond, SDL_mutex *mutex)
 {
 	return LWP_RETCODE(LWP_CondWait(*cond, *mutex));
 }
 
-int cond_wait_timed(bor_cond *cond, bor_mutex *mutex, int ms)
+int cond_wait_timed(bor_cond *cond, SDL_mutex *mutex, int ms)
 {
 	struct timespec time_to_wait;
 	time_to_wait.tv_sec = ms / 1000;

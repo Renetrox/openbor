@@ -454,7 +454,7 @@ static void initMenu(int type)
 	isWide = (float)nativeHeight/(float)nativeWidth < 3.0f/4.0f;
 	isFull = 1;
 	bpp = 32;
-	savedata.hwscale = 0.0f;
+	//avedata.hwscale = 0.0f;
 #endif
 
 	pixelformat = PIXEL_x8;

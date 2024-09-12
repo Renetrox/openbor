@@ -52,9 +52,15 @@ include $(PREBUILT_STATIC_LIBRARY)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE    := openbor
-LOCAL_CFLAGS    := -g -O2 -Wall -Werror -Wno-unused-result -fsigned-char -fno-ident -freorder-blocks
-LOCAL_CFLAGS    += -DLINUX -DSDL=1 -DANDROID=1 -DTREMOR=1 -DWEBM=1
-LOCAL_CPPFLAGS  := ${LOCAL_CFLAGS}
+#LOCAL_CFLAGS   := -g -O2 -Wall -Werror -Wno-unused-result -fsigned-char -fno-ident -freorder-blocks -Wno-error=address -Wno-pointer-to-int-cast -fPIC -fPIE -static
+#LOCAL_C_FEATURES := -DLINUX -DSDL=1 -DANDROID=1 -DTREMOR=1 -DWEBM=1 -DANDROID_ARM_NEON=FALSE -std=c99
+#LOCAL_CFLAGS    := -DLINUX -DSDL=1 -DANDROID=1 -DTREMOR=1 -DWEBM=1 -DANDROID_ARM_NEON=FALSE -std=c99
+#LOCAL_CPP_FEATURES := -DLINUX -DSDL=1 -DANDROID=1 -DTREMOR=1 -DWEBM=1 -DANDROID_ARM_NEON=FALSE
+#LOCAL_CPPFLAGS  := -DLINUX -DSDL=1 -DANDROID=1 -DTREMOR=1 -DWEBM=1 -DANDROID_ARM_NEON=FALSE
+#-Wno-error=address -Wno-pointer-to-int-cast
+LOCAL_CFLAGS :=  -Wno-all -DLINUX -DSDL=1 -DANDROID=1 -DTREMOR=1 -DWEBM=1 -DANDROID_ARM_NEON=FALSE -fcommon -std=c99
+#LOCAL_CPPFLAGS := -Wno-all -DLINUX -DSDL=1 -DANDROID=1 -DTREMOR=1 -DWEBM=1 -DANDROID_ARM_NEON=FALSE -fcommon
+LOCAL_LDFLAGS += -Wl,--gc-sections,--strip-debug -fvisibility=hidden
 
 LOCAL_C_INCLUDES  :=  \
 	$(LOCAL_PATH)/src/ \

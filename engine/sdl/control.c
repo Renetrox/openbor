@@ -15,6 +15,7 @@
 #include "sblaster.h"
 #include "joysticks.h"
 #include "openbor.h"
+#include "sdlport.h"
 
 #define T_AXIS 7000
 
