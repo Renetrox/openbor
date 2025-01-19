@@ -133,6 +133,27 @@ LIBRARIES       = $(SDKPATH)/usr/lib
 CFLAGS          += -Wno-error=format-overflow -Wno-error=implicit-function-declaration -Wno-error=unused-variable -Wno-error=unused-label -Wno-error=stringop-overflow
 endif
 
+ifdef BUILD_LINUX_LE_arm64
+TARGET 	        = $(VERSION_NAME).elf
+TARGET_FINAL    = $(VERSION_NAME)
+TARGET_PLATFORM = LINUX
+BUILD_LINUX     = 1
+BUILD_SDL       = 1
+BUILD_GFX       = 1
+BUILD_PTHREAD   = 1
+BUILD_SDL_IO    = 1
+BUILD_VORBIS    = 1
+BUILD_WEBM      = 1
+BUILDING        = 1
+INCLUDES        = $(SDKPATH)/usr/include \
+                  $(SDKPATH)/usr/include/SDL2
+OBJTYPE         = elf
+LIBRARIES       = $(SDKPATH)/usr/lib
+CFLAGS          += -march=armv8-a
+CFLAGS          += -Wno-error=format-overflow -Wno-error=implicit-function-declaration -Wno-error=unused-variable -Wno-error=unused-label -Wno-error=stringop-overflow
+endif
+
+
 ifdef BUILD_DARWIN
 TARGET          = $(VERSION_NAME).elf
 TARGET_FINAL    = $(VERSION_NAME)
@@ -190,8 +211,13 @@ ifdef BUILD_WIN
 STRIP 	        = $(WINDEV)/$(PREFIX)strip$(EXTENSION) $(TARGET) -o $(TARGET_FINAL)
 endif
 ifdef BUILD_LINUX
-STRIP 	        = $(LNXDEV)/$(PREFIX)strip $(TARGET) -o $(TARGET_FINAL)
+STRIP = /usr/bin/strip $(TARGET) -o $(TARGET_FINAL)
 endif
+
+$(TARGET_FINAL): $(TARGET)
+	@echo Stripping $(TARGET_PLATFORM) Port: $(TARGET_FINAL)...
+	@$(STRIP)  # Aquí se usa la variable STRIP
+
 ifdef BUILD_DARWIN
 STRIP           = $(PREFIX)strip $(TARGET) -o $(TARGET_FINAL)
 endif
@@ -248,16 +274,16 @@ INCS += $(INCLUDES)
 ADPCM 	        = source/adpcmlib/adpcm.o
 
 ifdef BUILD_GFX
-GFX 	        = source/gfxlib/2xSaI.o                                                             \
-                  source/gfxlib/bilinear.o                                                          \
-                  source/gfxlib/dotmatrix.o                                                         \
-                  source/gfxlib/gfx.o                                                               \
-                  source/gfxlib/hq2x.o                                                              \
-                  source/gfxlib/scale2x.o                                                           \
-                  source/gfxlib/scanline.o                                                          \
-                  source/gfxlib/simple2x.o                                                          \
-                  source/gfxlib/tv2x.o
-endif
+GFX = source/gfxlib/bilinear.o \
+      source/gfxlib/dotmatrix.o \
+      source/gfxlib/gfx.o \
+      source/gfxlib/scale2x.o \
+      source/gfxlib/scanline.o \
+      source/gfxlib/simple2x.o \
+      source/gfxlib/tv2x.o
+
+endif                                                           \
+                  
 
 ifdef BUILD_MMX
 GFX 	       += source/gfxlib/2xSaImmx.o                                                          \
@@ -442,6 +468,8 @@ CFLAGS 	       += -g -Wall -Werror -Wno-format-truncation -Wno-stringop-truncati
 ifndef BUILD_DARWIN
 ifdef BUILD_LINUX
 CFLAGS         += -Wno-unused-result `pkg-config sdl2 --cflags`
+CFLAGS += -Wno-address
+CFLAGS += -I/usr/include
 endif
 endif
 

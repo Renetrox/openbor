@@ -1,0 +1,42 @@
+Total Ram:  4101152768 Bytes (  3911 MB )
+ Free Ram:  2451906560 Bytes (  2338 MB )
+ Used Ram:     1461248 Bytes (     1 MB )
+
+debug:nativeWidth, nativeHeight, bpp, Hz  1366, 768, 24, 60
+Joystick: "Unknown" connected at port: 0 at 2025-01-18 23:39:46
+
+************ Shutting Down ************
+
+OpenBOR v3.0 Build 7082 (commit hash: 5428eec), Compile Date: Jan 17 2025
+Presented by the OpenBOR Team.
+www.chronocrash.com
+OpenBOR is the open source continuation of Beats of Rage by Senile Team.
+
+Special thanks to SEGA and SNK.
+
+Total Ram:  4101152768 Bytes (  3911 MB )
+ Free Ram:  2448891904 Bytes (  2335 MB )
+ Used Ram:   104094720 Bytes (    99 MB )
+
+Release level data...........
+Done!
+
+Release graphics data........	Done!
+Release game data............
+
+
+Release game data............	Done!
+Release timer................	Done!
+Release input hardware.......	Done!
+Release sound system.........	Done!
+Release FileCaching System...	Done!
+
+**************** Done *****************
+
+OpenBOR v3.0 Build 7082 (commit hash: 5428eec), Compile Date: Jan 17 2025
+Presented by the OpenBOR Team.
+www.chronocrash.com
+OpenBOR is the open source continuation of Beats of Rage by Senile Team.
+
+Special thanks to SEGA and SNK.
+
