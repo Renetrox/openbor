@@ -21,7 +21,7 @@ Installation Instructions
 
     Clone this repository:
 
-git clone https://github.com/Renetrox/OpenBOR-Opi-3-linux-arm64.git
+git clone https://github.com/Renetrox/openbor.git
 cd OpenBOR-Opi-3-linux-arm64
 
 Install the required dependencies:
