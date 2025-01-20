@@ -1,12 +1,68 @@
-# Overview
- 
-OpenBOR is a royalty free sprite-based side scrolling gaming engine. From humble beginnings in 2004, it has since grown into the most versatile, easy to use, and powerful engine of its type you will find anywhere. OpenBOR is optimized for side scrolling beat em’ up style games (Double Dragon, Streets of Rage, Final Fight), but easily accommodates any sort of gameplay style and feature set you can imagine. 
+Gracias por señalarlo. Aquí tienes una versión corregida del archivo README con el paso adicional para ingresar a la carpeta engine antes de compilar:
+OpenBOR for ARM64 and Orange Pi 3B
 
-Want to try your hand at game making? Open one of the already existing modules and tinker around – the community is right here to help you along.
+This repository contains a modified version of OpenBOR (Open Beats of Rage) compatible with ARM64 devices, specifically optimized for the Orange Pi 3B.
+Key Features
 
-Ready to make something of your own? Get some images together and away you go! 
+    ARM64 Compatibility: Modifications made to compile and run OpenBOR on ARM64 devices.
+    Optimized for Orange Pi 3B: Specific adjustments for the hardware and operating system of the Orange Pi 3B.
+    Extended Compatibility: Tested on Debian- and Ubuntu-based distributions.
 
-Feeling ambitious? Delve into the built-in script engine and graphical suite to build a masterpiece rivaling the most outlandish Triple-A productions. Sell it if you can!
+System Requirements
+
+    Device: Orange Pi 3B or any ARM64 device.
+    Operating System: Debian 11/12, Ubuntu 20.04/22.04, or compatible systems.
+    Dependencies:
+        SDL2
+        GCC/G++
+        Make
+        Git
+
+Installation Instructions
+
+    Clone this repository:
+
+git clone https://github.com/Renetrox/OpenBOR-Opi-3-linux-arm64.git
+cd OpenBOR-Opi-3-linux-arm64
+
+Install the required dependencies:
+
+sudo apt update
+sudo apt install -y libsdl2-dev build-essential git
+
+Navigate to the engine directory:
+
+cd engine
+
+Compile OpenBOR:
+
+make BUILD_LINUX_LE_arm64=1
+
+Run OpenBOR:
+
+    ./OpenBOR
+
+Specific Notes for Orange Pi 3B
+
+    Hardware: This project leverages the capabilities of the Rockchip RK3566 processor and ARM Mali G52 2EE GPU.
+    System: Using Orange Pi OS (Debian-based) is recommended for an optimized experience.
+    Additional Configurations:
+        Adjust scaling and resolution in the configuration file for optimal performance.
+
+Customization
+
+You can add your own OpenBOR games to the Paks directory. Simply place the .pak files inside this folder.
+Credits
+
+    OpenBOR: Original project developed by the Beats of Rage community.
+    ARM64 Adaptations: Implemented by Renetrox.
+    Contributions: Thanks to everyone who helped with development and testing.
+
+License
+
+This project uses the same license as OpenBOR. See the LICENSE file for more details.
+
+Enjoy your games on your Orange Pi 3B!
 
 To find out more, stop into the OpenBOR community at [ChronoCrash.com](https://www.chronocrash.com/). You will also find dozens of game modules already finished to download and play.
 
