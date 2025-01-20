@@ -1,4 +1,3 @@
-Gracias por señalarlo. Aquí tienes una versión corregida del archivo README con el paso adicional para ingresar a la carpeta engine antes de compilar:
 OpenBOR for ARM64 and Orange Pi 3B
 
 This repository contains a modified version of OpenBOR (Open Beats of Rage) compatible with ARM64 devices, specifically optimized for the Orange Pi 3B.
