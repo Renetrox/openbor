@@ -1,3 +1,4 @@
+Gracias por confirmarlo. Aquí está el README corregido con los pasos adecuados para compilar, asegurándome de incluir el ingreso a la carpeta engine.
 OpenBOR for ARM64 and Orange Pi 3B
 
 This repository contains a modified version of OpenBOR (Open Beats of Rage) compatible with ARM64 devices, specifically optimized for the Orange Pi 3B.
@@ -22,7 +23,7 @@ Installation Instructions
     Clone this repository:
 
 git clone https://github.com/Renetrox/openbor.git
-cd OpenBOR-Opi-3-linux-arm64
+cd openbor
 
 Install the required dependencies:
 
